@@ -1,0 +1,7 @@
+bn_platform_homepage:
+    path:     /
+    defaults: { _controller: BNPlatformBundle:Default:index }
+
+bn_connexion:
+    path:    /connexion
+    defaults: { _controller: BNPlatformBundle:Advert:connexion}
