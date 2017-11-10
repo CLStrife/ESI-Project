@@ -36,8 +36,6 @@ class AdvertController extends Controller
 		->add('pseudo', 				TextType::class)
 		->add('mail',					TextType::class)
 		->add('password',				PasswordType::class)
-		//->add('checkbox',				CheckboxType::class)
-		//->add('Remember',				TextType::class)
 		->add('save',					SubmitType::class)
 		;
 		$form = $formBuilder->getForm();
