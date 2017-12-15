@@ -12,6 +12,7 @@ use Symfony\Component\Form\Extension\Core\Type\PasswordType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\DateType;
 use BN\PlatformBundle\Entity\Advert;
+use Symfony\Component\HttpFoundation\Request;
 
 /**
 * 
@@ -19,17 +20,14 @@ use BN\PlatformBundle\Entity\Advert;
 class AdvertController extends Controller
 {
 	
-	public function connexionAction()		
+	public function connexionAction(Request $request)		
 	{
-		/*$content = $this->get('templating')->render('BNPlatformBundle:Advert:connexion.html.twig');
-		return new Response($content);
-		*/
+		
 		$advert = new Advert;
 		$advert->setDateInscript(new \Datetime());
 
-		$formBuilder = $this->get('form.factory')->createBuilder(FormType::class, $advert);
+		$form = $this->get('form.factory')->createBuilder(FormType::class, $advert)
 
-		$formBuilder	
 		->add('dateInscript',			DateType::class)
 		->add('nom',					TextType::class)
 		->add('prenom',					TextType::class)
@@ -37,26 +35,30 @@ class AdvertController extends Controller
 		->add('mail',					TextType::class)
 		->add('password',				PasswordType::class)
 		->add('save',					SubmitType::class)
+		->getForm()
 		;
-		$form = $formBuilder->getForm();
 
+		if($request->isMethod('POST')) {
+
+		$form->handleRequest($request);
+
+		if ($form->isSubmitted() && $form->isValid()) {
+
+			$em = $this->getDoctrine()->getManager();
+			$em -> persist($advert);
+			$em -> flush();
+
+			return $this->redirectToRoute('bn_confirm');
+		}
+	}
 		return $this->render('BNPlatformBundle:Advert:connexion.html.twig', array('form' => $form->createView(),
 	));
 	}
 
 	public function validAction()
 	{
-		$advert = new Advert;
-
-		$validator = $this->get('validator');
-		$listError = $validator->validate($advert);
-
-		if (count($listError) > 0) {
-			return new Response((string) $listError);
-		}else{
-			//return new Response("Tu es enregistré!!");
-			return $this->redirectToRoute('task_success');
-		}
+			return $this->render('BNPlatformBundle:Advert:confirmRegistrated.html.twig');
+		
 	}
 
 }

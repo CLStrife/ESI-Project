@@ -5,3 +5,6 @@ bn_platform_homepage:
 bn_connexion:
     path:    /connexion
     defaults: { _controller: BNPlatformBundle:Advert:connexion}
+bn_confirm:
+    path:    /confirm
+    defaults: { _controller: BNPlatformBundle:Advert:valid}
