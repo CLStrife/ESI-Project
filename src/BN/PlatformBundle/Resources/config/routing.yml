@@ -1,6 +1,6 @@
 bn_platform_homepage:
-    path:     /
-    defaults: { _controller: BNPlatformBundle:Default:index }
+    path:     /accueil
+    defaults: { _controller: BNPlatformBundle:Advert:accueil }
 
 bn_connexion:
     path:    /connexion
@@ -8,3 +8,10 @@ bn_connexion:
 bn_confirm:
     path:    /confirm
     defaults: { _controller: BNPlatformBundle:Advert:valid}
+
+#bn_log_in:
+ #   path:    /login
+  #  defaults: { _controller: BNPlatformBundle:Advert:login}
+bn_add:
+    path:    /add
+    defaults: { _controller: BNPlatformBundle:Advert:add}

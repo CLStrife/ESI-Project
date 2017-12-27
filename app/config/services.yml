@@ -33,3 +33,8 @@ services:
     # AppBundle\Service\ExampleService:
     #     arguments:
     #         $someArgument: 'some_value'
+    
+    BN\UserBundle\DataFixtures\ORM\:
+        resource: 'C:/Users/wli/BicheNeuve/src/BN/UserBundle/DataFixtures/ORM/*'
+        public: true
+        tags: ['doctrine.fixture.orm']

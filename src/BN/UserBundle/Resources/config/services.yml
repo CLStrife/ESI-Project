@@ -1,0 +1,4 @@
+services:
+#    bn_user.example:
+#        class: BN\UserBundle\Example
+#        arguments: ["@service_id", "plain_value", "%parameter%"]

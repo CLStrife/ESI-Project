@@ -5,16 +5,18 @@
 {% endblock %}
 
 {% block bnplatform_body %}
-	{% if error is defined %}
+	{% if error %}
 	<div class="alert alert-danger">{{ error.message }}</div>
 	{% endif %}
 	
 	<form action="{{ path('login_check') }}" method="post">
 		<label for="username">Login: </label>
-		<input type="text" name="_username" id="username" value="{{ last_username }}">
+		<input type="text" id="username" name="_username" value="{% if last_username is defined %} {{ last_username }} {% endif %}"/>
+		
 		<label for="password">Mot de passe: </label>
-		<input type="password" id="password" name="_password">
+		<input type="password" id="password" name="_password"/>
 		<br>
+
 		<input type="submit" value="Connexion" name="">
 	</form>
 {% endblock %}
