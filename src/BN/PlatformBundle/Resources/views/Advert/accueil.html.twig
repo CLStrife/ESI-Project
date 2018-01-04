@@ -7,5 +7,34 @@
 	{% block bnplatform_body %}
 
 	<h3>Accueil</h3>
-	
+	<div class="well">
+		<ul>
+			
+				{% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+				<li>
+					<div id="menu">
+				<h3>Les discussions</h3>
+				<ul>
+					<li><a href="{{ path('bn_add') }}">Ajouter une discussion</a></li>
+				</ul>
+			</div>
+				</li>
+			<li>	
+				Connecté en tant que {{ app.user.username }}
+				-
+				<a href="{{ path('fos_user_security_logout') }}">Déconnexion</a>
+			</li>
+				{% else %}
+			<li>
+				<a href="{{ path('fos_user_security_login') }}">Connexion</a>
+			</li>
+			<li>
+				<a href="{{ path('fos_user_registration_register') }}">S'inscrire</a>
+			</li>	
+				
+				{% endif %}
+			</li>
+		</ul>
+	</div>
+
 	{% endblock %}

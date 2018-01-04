@@ -1,0 +1,3 @@
+bn_core_homepage:
+    path:     /
+    defaults: { _controller: BNCoreBundle:Default:index }
