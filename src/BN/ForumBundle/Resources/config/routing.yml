@@ -1,0 +1,6 @@
+
+
+bn_forum_test:
+    path:     /test
+    defaults: { _controller: BNForumBundle:Default:addTopic }
+

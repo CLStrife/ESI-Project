@@ -1,0 +1,38 @@
+{% extends "BNPlatformBundle::layout.html.twig"%}
+
+{% block title %}
+	Forum - {{ parent() }}
+{% endblock %}
+
+{% block bnplatform_body %}
+
+<h3>Forum</h3>
+	<table>
+		<thead>
+			<tr>
+				<th>Sujet</th>
+				<th>Auteur</th>
+				<th>nbPost</th>
+				<th>Dernier msg</th>
+			</tr>
+		</thead>
+		<tfoot>
+			<tr>
+				<th>Sujet</th>
+				<th>Auteur</th>
+				<th>nbPost</th>
+				<th>Dernier msg</th>
+			</tr>
+		</tfoot>
+		<tbody>
+			<tr>
+
+				{% for advert in listAdverts %}
+				<td>{{ advert.nom }}</td>
+				<td>{{ advert.prenom }}</td>
+				{% endfor %}
+				
+			</tr>
+		</tbody>
+	</table>
+{% endblock %}

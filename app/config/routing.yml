@@ -1,3 +1,7 @@
+bn_forum:
+    resource: "@BNForumBundle/Resources/config/routing.yml"
+    prefix:   /
+
 bn_core:
     resource: "@BNCoreBundle/Resources/config/routing.yml"
     prefix:   /

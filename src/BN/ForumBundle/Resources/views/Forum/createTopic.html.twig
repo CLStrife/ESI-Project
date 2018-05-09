@@ -1,0 +1,45 @@
+{% extends "BNPlatformBundle::layout.html.twig"%}
+
+{% block title %}
+	New topic - {{ parent() }}
+{% endblock %}
+
+{% block bnplatform_body %}
+<h3>Nouveau topic</h3>
+<div class="well">
+	{{form_start(form, {'attr': {'class': 'form-horizontal'}}) }}
+	{{ form_errors(form) }}
+
+	<div class="form-group">
+		{{ form_label(form.topicTitre, "Ton topic", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+		{{ form_errors(form.topicTitre) }}
+		<div class="col-sm-9">
+			{{ form_widget(form.topicTitre, {'attr': {'class': 'form-control'}}) }}
+		</div>
+	</div>
+	<div>
+		{{ form_label(form.topicGenre, 'Le genre', {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+		{{ form_errors(form.topicGenre) }}
+		<div class="col-sm-9">
+			{{ form_widget(form.topicGenre, {'label_attr': {'class': 'form-control'}}) }}
+		</div>
+	</div>
+	<div class="form-group">
+		{{ form_label(form.topicPost, "Ton post", {'label_attr': {'class': 'col-sm-3 control-label'}}) }}
+		{{ form_errors(form.topicPost) }}
+		<div class="col-sm-3">
+			{{ form_widget(form.topicPost, {'label_attr': {'class': 'form-control'}}) }}
+		</div>
+	</div>
+	{{ form_widget(form.save, {'attr': {'class': 'btn btn-primary'}}) }}
+	{{ form_rest(form) }}
+	{{ form_end(form) }}
+</div>
+
+{% for message in app.session.flashbag.get('notice') %}
+
+<p>{{ message }}</p>
+
+{% endfor %}
+
+{% endblock %}

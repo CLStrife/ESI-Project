@@ -27,6 +27,7 @@ class LoadUser implements FixtureInterface
 
 			$manager->persist($user);
 		}
+		
 		$manager->flush();
 	}
 }

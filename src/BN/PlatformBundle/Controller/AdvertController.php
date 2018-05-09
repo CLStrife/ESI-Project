@@ -64,7 +64,7 @@ class AdvertController extends Controller
 	public function loginAction(Request $request)
 	{
 		$advert = new Advert;
-		$form = $this->get('form.factory')->createBuilder(FormType::class,  $advert)
+		$form = $this->get('form.factory')->createBuilder(FormType::class, $advert)
 		->add('pseudo',		TextType::class)
 		->add('password',	PasswordType::class)
 		//RepeatedType::class, array('type' => PasswordType::class,
@@ -98,6 +98,9 @@ class AdvertController extends Controller
 				throw new AccessDeniedException('Accès limité aux utilisateurs enregistrés!');
 				
 			}
+		public function toRegisterAction()
+		{
+			
 		}
 	}
 
