@@ -9,9 +9,9 @@ bn_confirm:
     path:    /confirm
     defaults: { _controller: BNPlatformBundle:Advert:valid}
 
-#bn_log_in:
- #   path:    /login
-  #  defaults: { _controller: BNPlatformBundle:Advert:login}
+bn_log_in:
+   path:    /connect
+   defaults: { _controller: BNPlatformBundle:Advert:login}
 bn_add:
     path:    /add
     defaults: { _controller: BNPlatformBundle:Advert:add}

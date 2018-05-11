@@ -10,6 +10,7 @@ use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Form\Extension\Core\Type\DateType;
 use BN\ForumBundle\Entity\forum_topic;
 
 class DefaultController extends Controller
@@ -28,11 +29,13 @@ class DefaultController extends Controller
     ));
         //declarer 'listadverts' => $listAdvert pour qu'il soit compris par twig
     }
+    
     public function addTopicAction(Request $request)
     {
         $topic = new forum_topic;
+
         $form = $this->get('form.factory')->createBuilder(FormType::class, $topic)
-        
+        //->add('topicTime', DateType::class)
         ->add('topicTitre', TextType::class)
         ->add('topicGenre', TextType::class)
         ->add('topicPost', TextareaType::class)

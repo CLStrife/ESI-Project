@@ -57,9 +57,9 @@ class forum_topic
     private $topicVu;
 
     /**
-     * @var int
+     * @var \DateTime
      *
-     * @ORM\Column(name="topic_time", type="integer")
+     * @ORM\Column(name="topic_time", type="date")
      */
     private $topicTime;
 
@@ -225,7 +225,7 @@ class forum_topic
     /**
      * Set topicTime
      *
-     * @param integer $topicTime
+     * @param \DateTime $topicTime
      *
      * @return forum_topic
      */
@@ -239,7 +239,7 @@ class forum_topic
     /**
      * Get topicTime
      *
-     * @return int
+     * @return \DateTime
      */
     public function getTopicTime()
     {
@@ -340,5 +340,10 @@ class forum_topic
     public function getTopicPost()
     {
         return $this->topicPost;
+    }
+
+    public function __construct()
+    {
+        $this->topicTime = new \Datetime('now');
     }
 }

@@ -67,6 +67,7 @@ class AdvertController extends Controller
 		$form = $this->get('form.factory')->createBuilder(FormType::class, $advert)
 		->add('pseudo',		TextType::class)
 		->add('password',	PasswordType::class)
+		->add('pseudo',		TextType::class)
 		//RepeatedType::class, array('type' => PasswordType::class,
 		//	'first_options' => array('label' => 'Password'),
 		//	'second_options' => array('label' => 'Repeat Password'),
@@ -78,7 +79,7 @@ class AdvertController extends Controller
 			$form->handleRequest($request);
 			if ($form->isSubmitted && $form->isValid()) {		
 
-				return $this->redirectToRoute('bn_connexion');
+				return $this->redirectToRoute('bn_forum_test');
 			}
 		}
 			return $this->render('BNPlatformBundle:Advert:logIn.html.twig', array('form' => $form->createView(),
@@ -98,9 +99,6 @@ class AdvertController extends Controller
 				throw new AccessDeniedException('Accès limité aux utilisateurs enregistrés!');
 				
 			}
-		public function toRegisterAction()
-		{
-			
-		}
 	}
+}
 
