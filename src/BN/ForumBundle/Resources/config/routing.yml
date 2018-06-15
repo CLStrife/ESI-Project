@@ -1,6 +1,6 @@
 
 
-bn_forum_test:
-    path:     /test
+bn_forum_add_topic:
+    path:     /addTopic
     defaults: { _controller: BNForumBundle:Default:addTopic }
 

@@ -14,9 +14,9 @@ bn_platform:
     resource: "@BNPlatformBundle/Resources/config/routing.yml"
     prefix:   /
 
-app:
-    resource: '@AppBundle/Controller/'
-    type: annotation
+#app:
+ #   resource: '@AppBundle/Controller/'
+  #  type: annotation
 
 #login:
  #   path:  /login
